@@ -148,7 +148,7 @@ integer :: ios
 
 integer :: i,j,k,l,a,b,try,qdim,lcheck !current dimensionality of charge
 
-real(rp) :: tmp, tmp2, RMSE_best, RMSE_tmp, MAE_tmp, maxAE_tmp
+real(rp) :: tmp, tmp2, RMSE_best, RMSE_tmp, MAE_tmp, maxAE_tmp, RMSE_a1, RMSE_a2
 
 integer :: cmd_count
 character(len=1024) :: arg, bla
@@ -217,7 +217,6 @@ vdw_grid_max_cutoff = 100._rp
 ! Read cube files
 call read_cube_file(trim(input_esp_cubefile),trim(input_density_cubefile))
 
-
 open(30, file=trim(input_xyzfile), status="old", action="read", iostat = ios)
 if(ios /= 0) call throw_error('Could not open "'//trim(input_xyzfile)//'" for reading')
 read(30,*,iostat=ios) num_charges
@@ -236,22 +235,48 @@ do i = 1,qdim,4
         total_charge = total_charge + tmp
     end if
     charges(i:i+2) = charges(i:i+2)*angstrom2bohr
+    ! Print the charges
     print*, charges(i:i+2)
 end do
+
 read(30,*,iostat=ios) !skip blank line
 !    read(30,*) dummystring, RMSE_best !read RMSE (commented as we may be using
 !    fragments, in which case RMSE in reconstructed file is incorrect)
 close(30)
 
-!initialize best RMSE
+
+write(*, '(A)') "First" 
 RMSE_tmp = rmse_qtot(charges(1:qdim))
+write(*,'(A30,2ES23.9,I10)') "Total", RMSE_tmp*hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
+RMSE_best = RMSE_tmp
+
+do i = 1,qdim,1
+    print*, i
+    if (mod(i, 4) > 0) then
+    print*, i
+
+    charges(i) = charges(i) + 0.01
+    RMSE_a1 = rmse_qtot(charges(1:qdim))
+
+    charges(i) = charges(i) - 2 * 0.01
+    RMSE_a2 = rmse_qtot(charges(1:qdim))
+
+    charges(i) = charges(i) + 0.01
+
+    write(*,'(A30,2ES23.9,I10)') "E dif", (RMSE_a1 - RMSE_a2)*hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
+    end if
+
+end do
+
+
+!initialize best RMSE
 
 !call write_error_cube_file() !writes the difference between true and fittes esp file to a cube file !works, but currently not wanted
 !
 ! Calculate RMSD for current charges
 ! RMSE_tmp = rmse_qtot(charges(1:qdim))
 
-write(*,'(A30,2ES23.9,I10)') "Total", RMSE_tmp*hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
+
 
 call write_xyz_file(charges(1:qdim),filename="refined.xyz")
 
