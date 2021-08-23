@@ -244,14 +244,17 @@ read(30,*,iostat=ios) !skip blank line
 close(30)
 
 !initialize best RMSE
-RMSE_best = rmse_qtot(charges(1:qdim))
+RMSE_tmp = rmse_qtot(charges(1:qdim))
 
 !call write_error_cube_file() !writes the difference between true and fittes esp file to a cube file !works, but currently not wanted
 !
 ! Calculate RMSD for current charges
 ! RMSE_tmp = rmse_qtot(charges(1:qdim))
 
-write(*,'(A30,2ES23.9,I10)') "Total", RMSE_best*hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
+write(*,'(A30,2ES23.9,I10)') "Total", RMSE_tmp*hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
+
+call write_xyz_file(charges(1:qdim),filename="refined.xyz")
+
 
 contains
 
@@ -631,7 +634,82 @@ logical function in_interaction_belt(q,mincut,maxcut)
 end function in_interaction_belt
 !-------------------------------------------------------------------------------
 
-
+!-------------------------------------------------------------------------------
+! writes a xyz file containing the results
+subroutine write_xyz_file(charges,a,filename)
+    implicit none 
+    integer :: ios
+    integer, optional :: a
+    real(rp), dimension(qdim), intent(in) :: charges
+    character(len=*), intent(in), optional :: filename
+    character(len=1024) :: outfile, dummy
+    
+    write(outfile,'(I0)') num_charges
+    if(present(a)) then
+        write(dummy,'(I0)') a
+        outfile = "multipole"//trim(dummy)//"_"//trim(outfile)//"charges.xyz"
+    else
+        outfile = trim(outfile)//"charges.xyz"
+    end if
+    if(trim(prefix) /= '') outfile = trim(prefix)//"/"//trim(outfile)
+    
+    if(present(filename)) outfile = filename
+    
+    
+    open(30, file=trim(outfile), status="replace", action="write", iostat = ios)
+    if(ios /= 0) call throw_error('Could not open "'//trim(outfile)//'" for writing')
+    write(30,'(I0)') num_charges
+    write(30,'(A,4A26)')  "s","x[A]","y[A]","z[A]","q[e]"
+    tmp = 0._rp
+    do i = 1,qdim,4
+        if(i+3 <= qdim) then
+            if(charges(i+3) > 0._rp) then
+                write(30,'(A,1X,4(F25.16,1X))') "N",charges(i:i+2)*bohr2angstrom,charges(i+3)
+            else
+                write(30,'(A,1X,4(F25.16,1X))') "O",charges(i:i+2)*bohr2angstrom,charges(i+3)
+            end if
+            tmp = tmp + charges(i+3)
+        else
+            tmp = total_charge-tmp
+            if(tmp > 0._rp) then
+                write(30,'(A,1X,4(F25.16,1X))') "N",charges(i:i+2)*bohr2angstrom,tmp
+            else
+                write(30,'(A,1X,4(F25.16,1X))') "O",charges(i:i+2)*bohr2angstrom,tmp 
+            end if
+        end if
+    end do
+    write(30,*)
+    write(30,'(A,ES23.9,A)') "        RMSE ", &
+                      RMSE_tmp*hartree2kcal," kcal/mol"
+    ! write(30,'(A,ES23.9,A)') "         MAE ", &
+    !                   MAE_tmp*hartree2kcal," kcal/mol"
+    ! write(30,'(A,ES23.9,A)') "     max. AE ", &
+    !                   maxAE_tmp*hartree2kcal," kcal/mol"
+    write(30,*)
+    write(30,'(A)') "Coordinates in bohr"
+    write(30,'(A,4A26)')  "s","x[bohr]","y[bohr]","z[bohr]","q[e]"
+    tmp = 0._rp
+    do i = 1,qdim,4
+        if(i+3 <= qdim) then
+            if(charges(i+3) > 0._rp) then
+                write(30,'(A,1X,4(F25.16,1X))') "+",charges(i:i+2),charges(i+3)
+            else
+                write(30,'(A,1X,4(F25.16,1X))') "-",charges(i:i+2),charges(i+3)
+            end if
+            tmp = tmp + charges(i+3)
+        else
+            tmp = total_charge-tmp
+            if(tmp > 0._rp) then
+                write(30,'(A,1X,4(F25.16,1X))') "+",charges(i:i+2),tmp
+            else
+                write(30,'(A,1X,4(F25.16,1X))') "-",charges(i:i+2),tmp 
+            end if
+        end if
+    end do
+    close(30)
+    end subroutine write_xyz_file
+    !-------------------------------------------------------------------------------
+    
 
 
 end program test
