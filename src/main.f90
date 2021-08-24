@@ -146,9 +146,9 @@ real(rp), dimension(:,:), allocatable :: search_range ! has a minimum and a maxi
 ! for error handling
 integer :: ios
 
-integer :: i,j,k,l,a,b,try,qdim,lcheck !current dimensionality of charge
+integer :: i,j,k,l,a,b,g,try,qdim,lcheck,n_steps !current dimensionality of charge
 
-real(rp) :: tmp, tmp2, RMSE_best, RMSE_tmp, MAE_tmp, maxAE_tmp, RMSE_a1, RMSE_a2
+real(rp) :: deriv, tmp, tmp2, step_size, learning_rate, RMSE_best, RMSE_tmp, MAE_tmp, maxAE_tmp, RMSE_a1, RMSE_a2
 
 integer :: cmd_count
 character(len=1024) :: arg, bla
@@ -250,24 +250,38 @@ RMSE_tmp = rmse_qtot(charges(1:qdim))
 write(*,'(A30,2ES23.9,I10)') "Total", RMSE_tmp*hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
 RMSE_best = RMSE_tmp
 
-do i = 1,qdim,1
-    print*, i
-    if (mod(i, 4) > 0) then
-    print*, i
+step_size = 0.1 * angstrom2bohr
+learning_rate = 0.8 ! https://rosettacode.org/wiki/Gradient_descent#Fortran
+n_steps = 100
 
-    charges(i) = charges(i) + 0.01
+! Loop gradient descent for n steps
+do g=1,n_steps,1
+    do i = 1,qdim,1   
+        if (mod(i, 4) > 0) then
+        ! print*, i, mod(i, 4)
+
+        ! Numerical gradient
+        charges(i) = charges(i) + step_size ! take a step forward
+        RMSE_a1 = rmse_qtot(charges(1:qdim)) ! calculate RMSD
+        charges(i) = charges(i) - 2 * step_size ! take two steps backwards
+        RMSE_a2 = rmse_qtot(charges(1:qdim)) ! calculate RMSD
+        charges(i) = charges(i) + step_size ! reset position
+        deriv = (RMSE_a1 - RMSE_a2)/2*step_size ! change in Loss function versus step size (two steps)
+        
+        !write(*,'(A30,2ES23.9,I10)') "E dif/step", deriv !hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
+        !write(*,'(A30,2ES23.9,I10)') "x_start", charges(i)*bohr2angstrom
+        charges(i) = charges(i) - learning_rate * deriv
+        !write(*,'(A30,2ES23.9,I10)') "x_final", charges(i)*bohr2angstrom
+        !RMSE_a1 = rmse_qtot(charges(1:qdim))
+        !write(*,'(A30,2ES23.9,I10)') "Error", RMSE_a1*hartree2kcal
+        end if
+    end do
     RMSE_a1 = rmse_qtot(charges(1:qdim))
-
-    charges(i) = charges(i) - 2 * 0.01
-    RMSE_a2 = rmse_qtot(charges(1:qdim))
-
-    charges(i) = charges(i) + 0.01
-
-    write(*,'(A30,2ES23.9,I10)') "E dif", (RMSE_a1 - RMSE_a2)*hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
-    end if
-
+    write(*,'(A30,I3,2ES23.9,I10)') "Error", g, RMSE_a1*hartree2kcal
 end do
 
+RMSE_a1 = rmse_qtot(charges(1:qdim))
+write(*,'(A30,2ES23.9,I10)') "Error", RMSE_a1*hartree2kcal
 
 !initialize best RMSE
 
