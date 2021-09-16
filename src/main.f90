@@ -148,7 +148,7 @@ integer :: ios
 
 integer :: i,j,k,l,a,b,g,try,qdim,lcheck,n_steps !current dimensionality of charge
 
-real(rp) :: deriv, tmp, tmp2, step_size, learning_rate, RMSE_best, RMSE_tmp, MAE_tmp, maxAE_tmp, RMSE_a1, RMSE_a2
+real(rp) :: deriv, tmp, tmp2, step_size, stepsize, learning_rate, RMSE_best, RMSE_tmp, MAE_tmp, maxAE_tmp, RMSE_a1, RMSE_a2
 
 integer :: cmd_count
 character(len=1024) :: arg, bla
@@ -178,6 +178,10 @@ if(natmfit == 0) then
   enddo
 endif
 
+stepsize = 0.1
+learning_rate = 1 ! https://rosettacode.org/wiki/Gradient_descent#Fortran
+n_steps = 1000
+
 !read argument count
 cmd_count = command_argument_count()
 
@@ -193,6 +197,21 @@ do i = 1,cmd_count
         if(ios /= 0) call throw_error('Could not read command line argument "-xyz"')
         call get_command_argument(i+2, arg, l)
         read(arg,'(A)',iostat = ios) input_multipolefile
+    end if
+
+    if(arg(1:l) == '-stepsize') then
+        call get_command_argument(i+1, arg, l)
+        read(arg,*,iostat = ios) stepsize
+    end if
+    
+    if(arg(1:l) == '-n_steps') then
+        call get_command_argument(i+1, arg, l)
+        read(arg,*,iostat = ios) n_steps
+    end if
+    
+    if(arg(1:l) == '-learningrate') then
+        call get_command_argument(i+1, arg, l)
+        read(arg,*,iostat = ios) learning_rate
     end if
 
     ! input dens cube file
@@ -250,9 +269,12 @@ RMSE_tmp = rmse_qtot(charges(1:qdim))
 write(*,'(A30,2ES23.9,I10)') "Total", RMSE_tmp*hartree2kcal !sqrt(rmse_tot/npts)*hartree2kcalmol
 RMSE_best = RMSE_tmp
 
-step_size = 0.1 * angstrom2bohr
-learning_rate = 0.8 ! https://rosettacode.org/wiki/Gradient_descent#Fortran
-n_steps = 100
+write(*, '(A,F10.2)') "Step size: ", stepsize
+step_size = stepsize * angstrom2bohr
+write(*, '(A,F10.2)') "Step size in Bohr: ", step_size
+
+write(*, '(A,F10.2)') "Learning Rate: ", learning_rate
+write(*, '(A,I10)') "# Steps: ", n_steps
 
 ! Loop gradient descent for n steps
 do g=1,n_steps,1
