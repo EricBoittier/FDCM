@@ -1,0 +1,10 @@
+Title GDMA charge analysis
+ File L.pdb.fchk
+
+ Angstrom
+ Multipoles
+ Limit 2
+ Punch 5_SCAN_1_2_3_4_F_L.pun
+ Start
+
+ Finish

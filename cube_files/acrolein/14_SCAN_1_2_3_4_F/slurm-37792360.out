@@ -1,0 +1,12 @@
+node05.cluster
+Running formchk
+ Read checkpoint file L.pdb.chk
+ Write formatted file L.pdb.fchk
+ FChkPn:  Coordinates translated and rotated.
+ FChkPn:  Coordinates match /B/ after translation and rotation.
+Generating Density Cube
+ There are a total of      510416 grid points.
+ ElSum from          density=       21.9900625417
+Generating Potential Cube
+ There are a total of      510416 grid points.
+ ElSum from          density=       29.7822482737

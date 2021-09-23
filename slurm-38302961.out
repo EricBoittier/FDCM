@@ -1,0 +1,445 @@
+node38.cluster
+/home/unibas/boittier/FDCM/ester/0_1
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 243, in <module>
+    atom_positions, atom_names = read_cube_file(pcube)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 205, in read_cube_file
+    pcube_data, pcube_meta = read_cube(filepath)
+  File "/home/unibas/boittier/AdjustReference-System/Cube.py", line 167, in read_cube
+    with open(fname, 'r') as cube:
+FileNotFoundError: [Errno 2] No such file or directory: '../../cube_files/ester/0_SCAN_1_2_3_4_F/O.d.cube'
+cp: cannot stat ‘ester-0-1.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.003s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/1_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/1_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/1_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/1_2
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../0_1/1_final.xyz'
+cp: cannot stat ‘ester-1-2.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.003s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/2_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/2_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/2_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/2_3
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../1_2/2_final.xyz'
+cp: cannot stat ‘ester-2-3.xyz’: No such file or directory
+
+real	0m0.006s
+user	0m0.002s
+sys	0m0.002s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/3_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/3_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/3_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/3_4
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../2_3/3_final.xyz'
+cp: cannot stat ‘ester-3-4.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.003s
+sys	0m0.001s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/4_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/4_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/4_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/4_5
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../3_4/4_final.xyz'
+cp: cannot stat ‘ester-4-5.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.000s
+sys	0m0.004s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/5_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/5_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/5_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/5_6
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../4_5/5_final.xyz'
+cp: cannot stat ‘ester-5-6.xyz’: No such file or directory
+
+real	0m0.006s
+user	0m0.001s
+sys	0m0.004s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/6_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/6_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/6_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/6_7
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../5_6/6_final.xyz'
+cp: cannot stat ‘ester-6-7.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.003s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/7_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/7_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/7_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/7_8
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../6_7/7_final.xyz'
+cp: cannot stat ‘ester-7-8.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.000s
+sys	0m0.004s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/8_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/8_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/8_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/8_9
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../7_8/8_final.xyz'
+cp: cannot stat ‘ester-8-9.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.003s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/9_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/9_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/9_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/9_10
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../8_9/9_final.xyz'
+cp: cannot stat ‘ester-9-10.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.003s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/10_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/10_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/10_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/10_11
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../9_10/10_final.xyz'
+cp: cannot stat ‘ester-10-11.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.003s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/11_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/11_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/11_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/11_12
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../10_11/11_final.xyz'
+cp: cannot stat ‘ester-11-12.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.002s
+sys	0m0.003s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/12_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/12_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/12_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/12_13
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../11_12/12_final.xyz'
+cp: cannot stat ‘ester-12-13.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.003s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/13_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/13_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/13_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/13_14
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../12_13/13_final.xyz'
+cp: cannot stat ‘ester-13-14.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.002s
+sys	0m0.002s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/14_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/14_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/14_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/14_15
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../13_14/14_final.xyz'
+cp: cannot stat ‘ester-14-15.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.002s
+sys	0m0.002s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/15_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/15_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/15_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/15_16
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../14_15/15_final.xyz'
+cp: cannot stat ‘ester-15-16.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.002s
+sys	0m0.002s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/16_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/16_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/16_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/ester/16_17
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 239, in <module>
+    c_positions, c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 215, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../15_16/16_final.xyz'
+cp: cannot stat ‘ester-16-17.xyz’: No such file or directory
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.002s
+-xyz
+refined.xyz
+-dens
+../../cube_files/ester/17_SCAN_1_2_3_4_F/O.d.cube
+-esp
+../../cube_files/ester/17_SCAN_1_2_3_4_F/O.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "../../cube_files/ester/17_SCAN_1_2_3_4_F/O.p.cube".
+cp: cannot stat ‘refined.xyz’: No such file or directory
