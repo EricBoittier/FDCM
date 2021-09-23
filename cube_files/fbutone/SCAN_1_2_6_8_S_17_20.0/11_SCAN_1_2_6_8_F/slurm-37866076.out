@@ -1,0 +1,11 @@
+node06.cluster
+Running formchk
+ Read checkpoint file N.pdb.chk
+ Write formatted file N.pdb.fchk
+ FChkPn:  Initial coordinates match /B/.
+Generating Density Cube
+ There are a total of      511920 grid points.
+ ElSum from          density=       48.0306898635
+Generating Potential Cube
+ There are a total of      511920 grid points.
+ ElSum from          density=       64.6345268612

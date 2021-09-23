@@ -1,0 +1,27 @@
+REMARK  FOR INFORMATIONS, PLEASE CONTACT:                                             
+REMARK  ZOETE VINCENT                                                                 
+REMARK  VINCENT.ZOETE_AT_ISB-SIB.CH                                                   
+REMARK  SWISS INSTITUTE OF BIOINFORMATICS                                             
+REMARK  MOLECULAR MODELING GROUP                                                      
+REMARK  QUARTIER SORGE - BATIMENT GENOPODE                                            
+REMARK  CH-1015 LAUSANNE                                                              
+REMARK  SWITZERLAND                                                                   
+REMARK  T: +41 21 692 4082                                                            
+REMARK ****************************************************************               
+REMARK   DATE:     5/26/21      8:15:51      CREATED BY USER: vzoete                  
+ATOM      1  C   LIG     1      -2.797   0.639  -0.000  1.00  0.00           LIG
+ATOM      2  C1  LIG     1      -1.481  -0.093  -0.002  1.00  0.00           LIG
+ATOM      3  H   LIG     1      -2.915   1.205   0.932  1.00  0.00           LIG
+ATOM      4  H1  LIG     1      -3.613  -0.079  -0.087  1.00  0.00           LIG
+ATOM      5  H2  LIG     1      -2.849   1.355  -0.828  1.00  0.00           LIG
+ATOM      6  C2  LIG     1      -0.247   0.800  -0.003  1.00  0.00           LIG
+ATOM      7  O   LIG     1      -1.407  -1.322  -0.000  1.00  0.00           LIG
+ATOM      8  C3  LIG     1       1.077   0.088   0.000  1.00  0.00           LIG
+ATOM      9  H3  LIG     1      -0.276   1.456   0.874  1.00  0.00           LIG
+ATOM     10  H4  LIG     1      -0.274   1.449  -0.885  1.00  0.00           LIG
+ATOM     11  F   LIG     1       1.268  -0.698   1.124  1.00  0.00           LIG
+ATOM     12  F1  LIG     1       2.116   1.027  -0.004  1.00  0.00           LIG
+ATOM     13  F2  LIG     1       1.268  -0.708  -1.116  1.00  0.00           LIG
+ATOM     14  K   K       2      -4.352  -3.842  -3.416  1.00  0.00        K
+TER      15      K       1
+END
