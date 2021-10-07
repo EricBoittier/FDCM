@@ -1,0 +1,26 @@
+node26.cluster
+Distance between Atom configurations = 6.295898431289449e-05
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 453, in <module>
+    print(f"Distance between Charge configurations = {ARS_obj.get_distance_charges()}")
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 394, in get_distance_charges
+    return Kabsch.align_vectors(self.c_positions_global, self.c_positions)[1]
+  File "rotation.pyx", line 2250, in scipy.spatial.transform.rotation.Rotation.align_vectors
+ValueError: Expected input `a` to have shape (N, 3), got ()
+
+real	0m0.120s
+user	0m0.001s
+sys	0m0.003s
+-xyz
+global_0_fit.xyz
+-dens
+/home/unibas/boittier/RDKit_G2/B.pdb/SCAN_1_2_3_4_S_36_10.0/0__SCAN_1_2_3_4_F/B.d.cube
+-esp
+/home/unibas/boittier/RDKit_G2/B.pdb/SCAN_1_2_3_4_S_36_10.0/0__SCAN_1_2_3_4_F/B.p.cube
+-stepsize
+0.2
+-n_steps
+1
+-learning_rate
+0.5
+ERROR: Could not open "/home/unibas/boittier/RDKit_G2/B.pdb/SCAN_1_2_3_4_S_36_10.0/0__SCAN_1_2_3_4_F/B.p.cube".

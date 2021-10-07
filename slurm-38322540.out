@@ -1,0 +1,9 @@
+node26.cluster
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 449, in <module>
+    ARS_obj = ARS(xyz_file_name, pcube, frame_file, pcube_2=pcube_2)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 167, in __init__
+    self.c_positions, self.c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 50, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../../../pydcm-1.2/models/test2/5-refine/25-charges/25_charges_refined.xyz'
