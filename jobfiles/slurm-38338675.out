@@ -1,0 +1,74 @@
+node33.cluster
+Distance between Atom configurations = 1.8039638937022157e-06
+Distance between Charge configurations = 3.346364223389196e-06
+/var/spool/slurm//job38338675/slurm_script: line 26: ../cubefit.x: No such file or directory
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.001s
+/home/unibas/boittier/FDCM/jobfiles/fbuta-f_0/0_1
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 449, in <module>
+    ARS_obj = ARS(xyz_file_name, pcube, frame_file, pcube_2=pcube_2)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 167, in __init__
+    self.c_positions, self.c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 50, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../refined.xyz'
+cp: cannot stat ‘global_fbuta-f_0-0-1.xyz’: No such file or directory
+/var/spool/slurm//job38338675/slurm_script: line 44: ../../cubefit.x: No such file or directory
+
+real	0m0.001s
+user	0m0.001s
+sys	0m0.000s
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/jobfiles/fbuta-f_0/1_2
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 449, in <module>
+    ARS_obj = ARS(xyz_file_name, pcube, frame_file, pcube_2=pcube_2)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 167, in __init__
+    self.c_positions, self.c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 50, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../0_1/1_final.xyz'
+cp: cannot stat ‘global_fbuta-f_0-1-2.xyz’: No such file or directory
+/var/spool/slurm//job38338675/slurm_script: line 44: ../../cubefit.x: No such file or directory
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.000s
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/jobfiles/fbuta-f_0/2_3
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 449, in <module>
+    ARS_obj = ARS(xyz_file_name, pcube, frame_file, pcube_2=pcube_2)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 167, in __init__
+    self.c_positions, self.c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 50, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../1_2/2_final.xyz'
+cp: cannot stat ‘global_fbuta-f_0-2-3.xyz’: No such file or directory
+/var/spool/slurm//job38338675/slurm_script: line 44: ../../cubefit.x: No such file or directory
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.000s
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/jobfiles/fbuta-f_0/3_4
+Traceback (most recent call last):
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 449, in <module>
+    ARS_obj = ARS(xyz_file_name, pcube, frame_file, pcube_2=pcube_2)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 167, in __init__
+    self.c_positions, self.c_charges = read_mdcm_xyz(xyz_file_name)
+  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 50, in read_mdcm_xyz
+    xyz_file = open(filepath).readlines()
+FileNotFoundError: [Errno 2] No such file or directory: '../2_3/3_final.xyz'
+cp: cannot stat ‘global_fbuta-f_0-3-4.xyz’: No such file or directory
+/var/spool/slurm//job38338675/slurm_script: line 44: ../../cubefit.x: No such file or directory
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.000s
+cp: cannot stat ‘refined.xyz’: No such file or directory
+/home/unibas/boittier/FDCM/jobfiles/fbuta-f_0/4_5
+slurmstepd: error: *** JOB 38338675 ON node33 CANCELLED AT 2021-10-12T10:31:21 ***

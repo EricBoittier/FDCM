@@ -8,18 +8,18 @@ hostname
 c_w_dir=$PWD
 cd $c_w_dir
 
-n_steps=50
-scan_name="_SCAN_1_2_3_4_F/B."
+n_steps=0
+scan_name="_SCAN/B."
 cubes_dir="/home/unibas/boittier/RDKit_G2/B.pdb/SCAN_1_2_3_4_S_36_10.0"
 
-output_dir="fbuta-50"
+output_dir="fbuta-f_0"
 mkdir -p $output_dir
 cd $output_dir
 
 frames="/home/unibas/boittier/pydcm-1.2/models/test3/frames.txt"
 
-initial_fit="/home/unibas/boittier/pydcm-1.2/models/test2/5-refine/25-charges/25_charges_refined.xyz"
-initial_fit_cube="/home/unibas/boittier/RDKit_G2/B.pdb/OPT_wB97XD_6-31+G/B.d.cube"
+initial_fit="/home/unibas/boittier/FDCM/mdcms/f_butadiene/21_charges_refined.xyz"
+initial_fit_cube="/home/unibas/boittier/RDKit_G2/B.pdb/OPT_B3LYP_6-31+G/B.d.cube"
 
 python ~/AdjustReference-System/ARS.py $initial_fit $initial_fit_cube  $cubes_dir/0$scan_name"p.cube" $frames 0_fit.xyz
 
@@ -28,7 +28,7 @@ cat "GD.log"
 
 initial_fit="../refined.xyz"
 
-for start in {0..36}
+for start in {0..35}
 do
 
 next=$(($start+1))
@@ -51,6 +51,4 @@ next=$(($start+1))
 cd ..
 
 done
-
-
 

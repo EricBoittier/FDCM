@@ -1,0 +1,13 @@
+-xyz
+refined.xyz
+-dens
+/home/unibas/boittier/RDKit_G2/B.pdb/SCAN_1_2_3_4_S_36_-10.0/5_SCAN/B.d.cube
+-esp
+/home/unibas/boittier/RDKit_G2/B.pdb/SCAN_1_2_3_4_S_36_-10.0/5_SCAN/B.p.cube
+-stepsize
+0.2
+-n_steps
+10
+-learning_rate
+0.5
+ERROR: Could not open "refined.xyz" for reading

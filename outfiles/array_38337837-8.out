@@ -1,0 +1,5 @@
+node39.cluster
+/home/unibas/boittier/FDCM/fbuta-f_10/8_9
+Distance between Atom configurations = 0.38600738002762697
+Distance between Charge configurations = 0.44761976807556664
+slurmstepd: error: *** JOB 38337846 ON node39 CANCELLED AT 2021-10-11T13:29:39 ***
