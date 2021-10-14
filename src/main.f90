@@ -306,9 +306,6 @@ end do
 RMSE_a1 = rmse_qtot(charges(1:qdim))
 write(*,'(A30,2ES23.9,I10)') "Error", RMSE_a1*hartree2kcal
 
-call do_analysis(vdw_grid_min_cutoff,vdw_grid_max_cutoff)
-
-
 call write_xyz_file(charges(1:qdim),filename="refined.xyz")
 
 
@@ -765,106 +762,6 @@ subroutine write_xyz_file(charges,a,filename)
     close(30)
     end subroutine write_xyz_file
     !-------------------------------------------------------------------------------
-    
-!-------------------------------------------------------------------------------
-! computes the RMSE 
-subroutine do_analysis(vdw_grid_min_cutoff,vdw_grid_max_cutoff)
-    implicit none
-    real(rp), parameter :: hartree2kcalmol = 627.509469_rp
-    real(rp), dimension(3) :: x ! position
-    integer :: idx, Nclose, Nmedium, Nfar, npts
-    real(rp) :: rmse_tot, rmse_close, rmse_medium, rmse_far, maxerror, currerror
-    real(rp) :: vdw_grid_min_cutoff,  vdw_grid_max_cutoff
-    real(rp) :: tmp_min_cutoff, tmp_max_cutoff
-
-     
-    write(*,'(A30,A23,A23,A10)')  "Measure","RMSE[kcal/mol/e]", "MaxError[kcal/mol/e]","NPoints"
-    !compute total RMSE
-    rmse_tot = 0._rp
-    maxerror = 0._rp
-    npts = 0._rp
-    do idx = 1,Ngrid
-      if(in_interaction_belt(gridval(:,idx),vdw_grid_min_cutoff, &
-          vdw_grid_max_cutoff)) then
-        npts = npts + 1
-        currerror = (esp_grid2(idx) - esp_grid(idx))**2 
-        rmse_tot = rmse_tot + currerror  
-        if(currerror > maxerror) maxerror = currerror
-      end if
-    end do    
-    write(*,'(A30,2ES23.9,I10)') "Total", sqrt(rmse_tot/npts)*hartree2kcalmol, &
-        sqrt(maxerror)*hartree2kcalmol,npts
-    
-    !compute close RMSE (r < 1.66)
-    Nclose = 0
-    rmse_close = 0._rp
-    maxerror = 0._rp
-    tmp_max_cutoff = vdw_grid_max_cutoff
-    vdw_grid_max_cutoff = 1.66_rp
-    do idx = 1,Ngrid
-        if(in_interaction_belt(gridval(:,idx),vdw_grid_min_cutoff, &
-           vdw_grid_max_cutoff)) then
-            Nclose = Nclose + 1
-            currerror = (esp_grid2(idx) - esp_grid(idx))**2 
-            rmse_close = rmse_close + currerror 
-            if(currerror > maxerror) maxerror = currerror
-        end if
-    end do
-    if(Nclose > 0)  write(*,'(A7,F6.2,A7,F6.2,A4,2ES23.9,I10)') "Close (", &
-       vdw_grid_min_cutoff," < r < ",vdw_grid_max_cutoff,")  ", &
-         sqrt(rmse_close/real(Nclose,rp))*hartree2kcalmol, &
-         sqrt(maxerror)*hartree2kcalmol, Nclose
-    vdw_grid_max_cutoff = tmp_max_cutoff
-    
-    !compute medium RMSE (1.66 < r < 2.20)
-    Nmedium = 0
-    rmse_medium = 0._rp
-    maxerror = 0._rp
-    tmp_min_cutoff = vdw_grid_min_cutoff
-    tmp_max_cutoff = vdw_grid_max_cutoff
-    vdw_grid_min_cutoff = 1.66_rp
-    vdw_grid_max_cutoff = 2.20_rp
-    do idx = 1,Ngrid
-        if(in_interaction_belt(gridval(:,idx),vdw_grid_min_cutoff, &
-           vdw_grid_max_cutoff)) then
-            Nmedium = Nmedium + 1
-            currerror = (esp_grid2(idx) - esp_grid(idx))**2 
-            rmse_medium = rmse_medium + currerror 
-            if(currerror > maxerror) maxerror = currerror  
-        end if
-    end do
-    if(Nmedium > 0)  write(*,'(A11,F5.2,A7,F5.2,A2,2ES23.9,I10)') "Mid-range (",&
-         vdw_grid_min_cutoff," < r < ", &
-         vdw_grid_max_cutoff,") ", &
-         sqrt(rmse_medium/real(Nmedium,rp))*hartree2kcalmol,&
-         sqrt(maxerror)*hartree2kcalmol, Nmedium
-    vdw_grid_min_cutoff = tmp_min_cutoff
-    vdw_grid_max_cutoff = tmp_max_cutoff
-    
-    !compute far RMSE (2.20 < r < infinity)
-    Nfar = 0
-    rmse_far = 0._rp
-    maxerror = 0._rp
-    tmp_min_cutoff = vdw_grid_min_cutoff
-    vdw_grid_min_cutoff = 2.20_rp
-    do idx = 1,Ngrid
-        if(in_interaction_belt(gridval(:,idx),vdw_grid_min_cutoff, &
-           vdw_grid_max_cutoff)) then
-            Nfar = Nfar + 1
-            currerror = (esp_grid2(idx) - esp_grid(idx))**2 
-            rmse_far = rmse_far + currerror  
-            if(currerror > maxerror) maxerror = currerror
-        end if
-    end do
-    if(Nfar > 0)  write(*,'(A11,F6.2,A13,2ES23.9,I10)') "Far-range (", &
-           vdw_grid_min_cutoff," < r)", &
-           sqrt(rmse_far/real(Nfar,rp))*hartree2kcalmol, &
-           sqrt(maxerror)*hartree2kcalmol, Nfar
-    vdw_grid_min_cutoff = tmp_min_cutoff
-    
-
-end subroutine do_analysis
-!-------------------------------------------------------------------------------
-
+   
 
 end program test

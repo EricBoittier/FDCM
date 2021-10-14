@@ -1,0 +1,14 @@
+node07.cluster
+
+real	0m0.825s
+user	0m0.804s
+sys	0m0.020s
+mv: cannot stat ‘comparison.png’: No such file or directory
+mv: cannot stat ‘comparison.png’: No such file or directory
+/home/unibas/boittier/FDCM/t-fbuta-c_10/20_21
+
+real	1m44.196s
+user	1m44.049s
+sys	0m0.016s
+mv: cannot stat ‘comparison.png’: No such file or directory
+mv: cannot stat ‘comparison.png’: No such file or directory

@@ -1,0 +1,2 @@
+node35.cluster
+slurmstepd: error: *** JOB 38339257 ON node35 CANCELLED AT 2021-10-12T17:34:35 ***

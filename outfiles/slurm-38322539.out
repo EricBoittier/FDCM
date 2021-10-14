@@ -1,5 +1,0 @@
-node26.cluster
-Traceback (most recent call last):
-  File "/home/unibas/boittier/AdjustReference-System/ARS.py", line 447, in <module>
-    output_filename = sys.argv[5]
-IndexError: list index out of range

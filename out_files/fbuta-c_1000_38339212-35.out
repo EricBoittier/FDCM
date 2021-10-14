@@ -1,0 +1,2 @@
+node45.cluster
+slurmstepd: error: *** JOB 38339212 ON node45 CANCELLED AT 2021-10-12T17:34:35 ***

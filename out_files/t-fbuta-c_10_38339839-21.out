@@ -1,0 +1,7 @@
+node07.cluster
+
+real	1m36.249s
+user	1m36.218s
+sys	0m0.015s
+mv: cannot stat ‘comparison.png’: No such file or directory
+slurmstepd: error: *** JOB 38339861 ON node07 CANCELLED AT 2021-10-12T18:16:17 ***

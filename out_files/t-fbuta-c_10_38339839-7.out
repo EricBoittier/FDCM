@@ -1,0 +1,7 @@
+node05.cluster
+
+real	1m36.151s
+user	1m36.122s
+sys	0m0.013s
+mv: cannot stat ‘comparison.png’: No such file or directory
+slurmstepd: error: *** JOB 38339847 ON node05 CANCELLED AT 2021-10-12T18:16:17 ***
