@@ -1,2 +1,5 @@
 cube*
 models/
+out_files/
+out_files/*
+models/*
